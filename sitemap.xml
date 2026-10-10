@@ -25,4 +25,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://velofitapp.com/blog/weekly-workout-plan-for-beginners-your-first-step-to-a-healthier-you.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://velofitapp.com/blog/what-to-eat-to-lose-weight-a-practical-guide-to-healthy-eating.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://velofitapp.com/blog/effective-at-home-belly-fat-exercises-your-guide-to-a-stronger-core.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
