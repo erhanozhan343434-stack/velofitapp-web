@@ -10,4 +10,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://velofitapp.com/blog/evde-gobek-eritme-egzersizleri-pratik-ve-etkili-hareketler.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://velofitapp.com/blog/kilo-vermek-i-cin-ne-yemeli-saglikli-beslenme-rehberi.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://velofitapp.com/blog/yeni-baslayanlar-i-cin-haftalik-antrenman-programi-spor-hayatiniza-i-lk-adim.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
