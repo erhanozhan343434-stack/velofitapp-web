@@ -199,10 +199,15 @@
 .promo-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; background: #0f1f1d; border-bottom: 1px solid #2c5a4e; }
   .promo-bar p { flex: 1; font-size: 12.5px; line-height: 1.45; color: #e8f3ee; }
   .promo-bar p strong { color: #ffffff; font-weight: 600; }
-  .promo-bar a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 16px; border-radius: 22px; background: #b8e4cc; color: #0b1a17; font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; }</style>
+  .promo-bar { flex-direction: column; justify-content: center; text-align: center; gap: 8px; padding: 14px 16px 16px; }
+  .promo-title { color: #b8e4cc; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .promo-line { font-size: 17px; font-weight: 500; color: #ffffff; }
+  .promo-line s { color: #ff4d4d; font-weight: 600; margin: 0 4px; }
+  .promo-line b { color: #b8e4cc; font-size: 24px; font-weight: 700; }
+  .promo-note { font-size: 13px; color: #e8f3ee; }
 </head>
 <body>
- <div class="promo-bar"><p><strong>Kampanya:</strong> Yıllık <s style="color:#9bb0aa;">499,99</s> <b style="color:#b8e4cc;">249,99 TL</b>, aylık <s style="color:#9bb0aa;">79,99</s> <b style="color:#b8e4cc;">49,99 TL</b>. Kodu Instagram’dan al.</p><a href="https://www.instagram.com/velofit_ai/" target="_blank" rel="noopener" onclick="gtag('event','instagram_click',{'event_category':'engagement'});">Instagram’a git</a></div>
+<div class="promo-bar"><div class="promo-title">Kampanya</div><div class="promo-line">Yıllık <s>499,99</s> <b>249,99 TL</b></div><div class="promo-line">Aylık <s>79,99</s> <b>49,99 TL</b></div><div class="promo-note">Kodu Instagram’dan al.</div><a href="https://www.instagram.com/velofit_ai/" target="_blank" rel="noopener" onclick="gtag('event','instagram_click',{'event_category':'engagement'});">Instagram’a git</a></div>
 
 <header>
   <div class="logo-group">
