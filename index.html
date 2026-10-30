@@ -253,18 +253,20 @@
 
   
  <style>
-#vfs{position:relative;height:300vh;margin:0 0 0}
-#vfs .vfs-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
-#vfs .vfs-head{position:absolute;top:9vh;left:0;right:0;text-align:center;padding:0 20px}
+<style>
+#vfs{position:relative;height:300vh}
+#vfs .vfs-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;padding-top:7vh;box-sizing:border-box}
+#vfs .vfs-head{position:relative;z-index:50;text-align:center;padding:0 20px;flex:none}
 #vfs .vfs-head h2{font-size:clamp(26px,6vw,42px);font-weight:800;line-height:1.15;margin:0 0 8px}
 #vfs .vfs-head p{font-size:clamp(14px,3.6vw,18px);color:#9aa6a0;margin:0}
-#vfs .vfs-deck{position:relative;width:100%;height:60vh;height:60svh;margin-top:10vh}
-@media (max-width:639px){#vfs .vfs-card{width:36vw}#vfs .vfs-deck{height:68vh;height:68svh;margin-top:9vh}#vfs .vfs-tabs{display:none}}
-#vfs .vfs-card{position:absolute;left:50%;top:50%;width:min(34vw,240px);aspect-ratio:520/1066;border-radius:20px;overflow:hidden;border:3px solid #1e2740;background:#0b0f0d;box-shadow:0 18px 50px rgba(0,0,0,.55);will-change:transform}
+#vfs .vfs-deck{position:relative;flex:1;width:100%;min-height:0;margin-top:2vh}
+#vfs .vfs-card{position:absolute;left:50%;top:50%;border-radius:20px;overflow:hidden;border:3px solid #1e2740;background:#0b0f0d;box-shadow:0 18px 50px rgba(0,0,0,.55);will-change:transform}
 #vfs .vfs-card img{display:block;width:100%;height:100%;object-fit:cover}
-#vfs .vfs-tabs{position:absolute;bottom:6vh;left:0;right:0;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:0 14px;opacity:0}
+#vfs .vfs-tabs{position:absolute;bottom:4vh;left:0;right:0;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:0 14px;opacity:0;z-index:40}
 #vfs .vfs-tabs span{font-size:13px;font-weight:700;color:#0c111c;padding:7px 13px;border-radius:999px}
-@media (prefers-reduced-motion:reduce){#vfs{height:auto}#vfs .vfs-stage{position:relative;height:auto;padding:60px 0}}
+@media (min-width:640px){#vfs .vfs-stage{padding-bottom:70px}}
+@media (max-width:639px){#vfs .vfs-tabs{display:none}}
+@media (prefers-reduced-motion:reduce){#vfs{height:auto}#vfs .vfs-stage{position:relative;height:auto;padding:60px 0}#vfs .vfs-deck{height:70vh;flex:none}}
 </style>
 <section id="vfs" aria-label="Uygulamanın sekmeleri">
   <div class="vfs-stage">
@@ -284,33 +286,36 @@
   if(!sec||!deck) return;
   var cards=[].slice.call(deck.querySelectorAll(".vfs-card"));
   var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var rot0=[-3,2,-1.5,3],rotF=[-11,-3.5,3.5,11],dyF=[16,0,0,16],rotG=[-3,3,3,-3];
+  var rot0=[-3,2,-1.5,3],rotF=[-10,-3.5,3.5,10],dyF=[14,0,0,14];
   function cl(x){return Math.max(0,Math.min(1,x));}
   function ez(x){return 1-Math.pow(1-x,3);}
+  var w=0,h=0;
+  function layout(){
+    var dw=deck.clientWidth,dh=deck.clientHeight,small=window.innerWidth<640;
+    var cw=small?dw*0.35:Math.min(dw*0.34,240);
+    cw=Math.min(cw,dh*0.9/2.05);
+    w=Math.max(60,cw);h=w*1066/520;
+    cards.forEach(function(c){c.style.width=w+"px";c.style.height=h+"px";});
+  }
   var ticking=false;
   function update(){
     ticking=false;
     var r=sec.getBoundingClientRect(),vh=window.innerHeight;
     var p=reduce?1:cl(-r.top/(r.height-vh));
     var e=ez(cl(p/0.75));
-    var grid=window.innerWidth<640;
+    var step=w*(window.innerWidth<640?0.47:0.62);
     cards.forEach(function(c,i){
-      var x,y,ang,sc=0.96+0.04*e,w=c.offsetWidth,h=c.offsetHeight;
-      if(grid){
-        var gx=[-0.56,0.56,-0.56,0.56][i]*w, gy=[-0.53,-0.53,0.53,0.53][i]*h;
-        x=gx*e; y=gy*e; ang=rot0[i]+(rotG[i]-rot0[i])*e;
-      }else{
-        x=(i-1.5)*w*0.62*e; y=dyF[i]*e; ang=rot0[i]+(rotF[i]-rot0[i])*e;
-      }
+      var x=(i-1.5)*step*e, y=dyF[i]*e, ang=rot0[i]+(rotF[i]-rot0[i])*e, sc=0.96+0.04*e;
       c.style.zIndex=10+i;
       c.style.transform="translate(-50%,-50%) translate("+x+"px,"+y+"px) rotate("+ang+"deg) scale("+sc+")";
     });
     tabs.style.opacity=cl((p-0.7)/0.2);
   }
   function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+  function onResize(){ layout(); onScroll(); }
   window.addEventListener("scroll",onScroll,{passive:true});
-  window.addEventListener("resize",onScroll);
-  update();
+  window.addEventListener("resize",onResize);
+  layout(); update();
 })();
 </script>
  <section>
