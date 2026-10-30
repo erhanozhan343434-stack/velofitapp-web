@@ -260,22 +260,21 @@
 #vfs .vfs-head h2{font-size:clamp(26px,6vw,42px);font-weight:800;line-height:1.15;margin:0 0 8px}
 #vfs .vfs-head p{font-size:clamp(14px,3.6vw,18px);color:#9aa6a0;margin:0}
 #vfs .vfs-deck{position:relative;flex:1;width:100%;min-height:0;margin-top:2vh}
-#vfs .vfs-card{position:absolute;left:50%;top:50%;border-radius:20px;border:3px solid #1e2740;background:#0b0f0d;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:translate3d(-50%,-50%,0)}
+#vfs .vfs-card{position:absolute;left:0;top:0;border-radius:20px;border:3px solid #1e2740;background:#0b0f0d;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 #vfs .vfs-card img{display:block;width:100%;height:100%;object-fit:cover;border-radius:17px;pointer-events:none}
-#vfs .vfs-tabs{position:absolute;bottom:4vh;left:0;right:0;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:0 14px;opacity:0;z-index:40}
+#vfs .vfs-tabs{flex:none;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:8px 14px 4vh;opacity:0;position:relative;z-index:40}
 #vfs .vfs-tabs span{font-size:13px;font-weight:700;color:#0c111c;padding:7px 13px;border-radius:999px}
-@media (min-width:640px){#vfs .vfs-stage{padding-bottom:70px}}
-@media (max-width:639px){#vfs .vfs-tabs{display:none}}
+@media (max-width:639px){#vfs .vfs-tabs span{font-size:12px;padding:6px 11px}}
 @media (prefers-reduced-motion:reduce){#vfs{height:auto}#vfs .vfs-stage{position:relative;height:auto;padding:60px 0}#vfs .vfs-deck{height:70vh;flex:none}}
 </style>
 <section id="vfs" aria-label="Uygulamanın sekmeleri">
   <div class="vfs-stage">
     <div class="vfs-head"><h2>Her şey tek uygulamada.</h2><p>Aşağı kaydır, sekmeleri gör.</p></div>
     <div class="vfs-deck" id="vfsDeck">
-      <div class="vfs-card"><img src="slayt-ana-sayfa.jpg" alt="Ana sayfa" width="520" height="1066" loading="lazy"></div>
-      <div class="vfs-card"><img src="slayt-antrenman.jpg" alt="Antrenman" width="520" height="1075" loading="lazy"></div>
-      <div class="vfs-card"><img src="slayt-beslenme.jpg" alt="Beslenme" width="520" height="1075" loading="lazy"></div>
-      <div class="vfs-card"><img src="slayt-ilerleme.jpg" alt="İlerleme" width="520" height="1075" loading="lazy"></div>
+      <div class="vfs-card"><img src="slayt-ana-sayfa.jpg" alt="Ana sayfa" width="520" height="1066" decoding="async"></div>
+      <div class="vfs-card"><img src="slayt-antrenman.jpg" alt="Antrenman" width="520" height="1075" decoding="async"></div>
+      <div class="vfs-card"><img src="slayt-beslenme.jpg" alt="Beslenme" width="520" height="1075" decoding="async"></div>
+      <div class="vfs-card"><img src="slayt-ilerleme.jpg" alt="İlerleme" width="520" height="1075" decoding="async"></div>
     </div>
     <div class="vfs-tabs" id="vfsTabs"><span style="background:#4ADE80">Ana Sayfa</span><span style="background:#4DA3FF">Antrenman</span><span style="background:#FFC145">Beslenme</span><span style="background:#FF8A5B">İlerleme</span></div>
   </div>
@@ -289,33 +288,43 @@
   var rot0=[-3,2,-1.5,3],rotF=[-10,-3.5,3.5,10],dyF=[14,0,0,14];
   function cl(x){return Math.max(0,Math.min(1,x));}
   function ez(x){return 1-Math.pow(1-x,3);}
-  var w=0,h=0;
+  var w=0,h=0,cx=0,cy=0,top0=0,range=1,small=false,lastP=-1;
+  function measure(){
+    var r=sec.getBoundingClientRect();
+    top0=r.top+(window.pageYOffset||0);
+    range=Math.max(1,sec.offsetHeight-window.innerHeight);
+  }
   function layout(){
-    var dw=deck.clientWidth,dh=deck.clientHeight,small=window.innerWidth<640;
+    var dw=deck.clientWidth,dh=deck.clientHeight;
+    small=window.innerWidth<640;
     var cw=small?dw*0.35:Math.min(dw*0.34,240);
     cw=Math.min(cw,dh*0.9/2.05);
-    w=Math.max(60,cw);h=w*1066/520;
+    w=Math.max(60,cw);h=w*1066/520;cx=dw/2;cy=dh/2;
     cards.forEach(function(c){c.style.width=w+"px";c.style.height=h+"px";});
   }
-  var ticking=false;
   function update(){
-    ticking=false;
-    var r=sec.getBoundingClientRect(),vh=window.innerHeight;
-    var p=reduce?1:cl(-r.top/(r.height-vh));
+    var p=reduce?1:cl(((window.pageYOffset||0)-top0)/range);
+    if(Math.abs(p-lastP)<0.0008) return;
+    lastP=p;
     var e=ez(cl(p/0.75));
-    var step=w*(window.innerWidth<640?0.47:0.62);
-    cards.forEach(function(c,i){
-      var x=(i-1.5)*step*e, y=dyF[i]*e, ang=rot0[i]+(rotF[i]-rot0[i])*e, sc=0.96+0.04*e;
-      c.style.zIndex=10+i;
-      c.style.transform="translate3d(-50%,-50%,0) translate3d("+x+"px,"+y+"px,0) rotate("+ang+"deg) scale("+sc+")";
-    });
+    var step=w*(small?0.47:0.62);
+    for(var i=0;i<cards.length;i++){
+      var x=cx-w/2+(i-1.5)*step*e, y=cy-h/2+dyF[i]*e, ang=rot0[i]+(rotF[i]-rot0[i])*e, sc=0.96+0.04*e;
+      cards[i].style.zIndex=10+i;
+      cards[i].style.transform="translate3d("+x+"px,"+y+"px,0) rotate("+ang+"deg) scale("+sc+")";
+    }
     tabs.style.opacity=cl((p-0.7)/0.2);
   }
-  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
-  function onResize(){ layout(); onScroll(); }
+  var ticking=false;
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ticking=false;update();}); } }
+  var rt;
+  function onResize(){ clearTimeout(rt); rt=setTimeout(function(){ layout(); measure(); lastP=-1; update(); },150); }
   window.addEventListener("scroll",onScroll,{passive:true});
   window.addEventListener("resize",onResize);
-  layout(); update();
+  window.addEventListener("load",function(){ layout(); measure(); lastP=-1; update(); });
+  if(window.ResizeObserver){ try{ new ResizeObserver(function(){ measure(); }).observe(document.body); }catch(e){} }
+  cards.forEach(function(c){ var im=c.querySelector("img"); if(im&&im.decode){ im.decode().catch(function(){}); } });
+  layout(); measure(); update();
 })();
 </script>
  <section>
