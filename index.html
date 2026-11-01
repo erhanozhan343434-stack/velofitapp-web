@@ -172,6 +172,16 @@ header{padding:20px 0}
 .bar .soc{gap:14px}.bar .soc a{width:46px;height:46px}.bar .soc svg{width:22px;height:22px}
 @media (max-width:640px){.logo{font-size:30px}.logo img{width:46px;height:46px}.bar .soc a{width:44px;height:44px}}
 .store strong{font-size:19px;line-height:1.2}.store{padding:11px 22px 11px 16px}
+.vf-hero-benefits{display:flex;flex-wrap:wrap;gap:8px 14px;margin:0 0 20px;color:#d5e9da;font-size:12px}
+.vf-hero-benefits span{white-space:nowrap}
+.vf-discovery{padding:24px 0 12px}
+.vf-discovery-card{display:flex;align-items:center;justify-content:space-between;gap:26px;padding:26px;border:1px solid rgba(74,222,128,.35);background:linear-gradient(110deg,#142019,#10161a);border-radius:18px}
+.vf-discovery-kicker{font-size:12px;letter-spacing:1px;color:#4ade80;font-weight:700}
+.vf-discovery h2{font-family:"Oswald",sans-serif;text-transform:uppercase;font-size:clamp(24px,3.5vw,36px);line-height:1.15;margin:8px 0}
+.vf-discovery p{color:#bdc9c1;font-size:14px;max-width:550px}
+.vf-discovery-button{cursor:pointer;border:0;border-radius:10px;padding:15px 20px;min-height:48px;background:#4ade80;color:#07140b;font:700 15px "Poppins",sans-serif;white-space:nowrap}
+.vf-discovery-button:focus-visible{outline:3px solid white;outline-offset:3px}
+@media(max-width:700px){.vf-discovery-card{flex-direction:column;align-items:stretch;padding:20px}.vf-discovery-button{white-space:normal}}
 </style>
 <link rel="stylesheet" href="/mobile-download.css">
 </head>
@@ -179,7 +189,7 @@ header{padding:20px 0}
 
 <div class="bar"><div class="wrap"><div class="soc "><a href="https://www.instagram.com/velofit_ai/" target="_blank" rel="noopener" aria-label="Instagram" onclick="gtag('event','instagram_click',{'event_category':'engagement'});"><svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r=".6" fill="currentColor"/></svg></a><a href="https://www.facebook.com/profile.php?id=61594500222148" target="_blank" rel="noopener" aria-label="Facebook" onclick="gtag('event','facebook_click',{'event_category':'engagement'});"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://www.tiktok.com/@velofit.ai" target="_blank" rel="noopener" aria-label="TikTok" onclick="gtag('event','tiktok_click',{'event_category':'engagement'});"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a4.5 4.5 0 1 1-4.5-4.5"/><path d="M14 3c.3 2.7 2.2 4.6 5 4.8"/></svg></a></div></div></div>
 <header><div class="wrap"><div class="logo"><img src="velofit-ikon.png" alt="VELOFIT.ai logosu" width="52" height="52"><span class="nm">VELOFIT<span class="ai">.ai</span></span></div><nav><a href="#ozellik">Özellikler</a><a href="#antrenman">Antrenman</a><a href="#koc">Yapay zekâ koç</a><a href="#sss">Sık sorulanlar</a></nav></div></header>
-<section class="hero"><div class="wrap"><div><h1>Antrenmanını ve beslenmeni <em>birlikte</em> yönet.</h1><p>VELOFIT.ai sana özel antrenman ve beslenme planı çıkarır, ilerlemeni takip eder. Takıldığında yapay zekâ koçuna tek dokunuşla yazarsın.</p><p class="vf-free-message" style="color:#4ADE80;font-weight:600;margin:0 0 16px">Ücretsiz başla, ilk antrenmanını keşfet.</p><div class="stores "><a class="store" href="https://apps.apple.com/tr/app/velofit-ai/id6809853060?l=tr" target="_blank" rel="noopener" onclick="gtag('event','app_store_click',{'event_category':'engagement'});"><svg viewBox="0 0 384 512" fill="#fff"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span><strong>App Store</strong></span></a><a class="store" href="https://play.google.com/store/apps/details?id=com.erhanozhan.wellnesscompanion" target="_blank" rel="noopener" onclick="gtag('event','play_store_click',{'event_category':'engagement'});"><svg viewBox="0 0 512 512"><path fill="#00A0FF" d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z"/><path fill="#00F076" d="M345.8 174L89.22 31.64l-.16-.09c-4.42-2.4-8.62 3.58-5 7.06l201.13 192.32z"/><path fill="#FF3A44" d="M84.08 473.39c-3.63 3.48.57 9.46 5 7.06l.16-.09L345.8 338l-60.61-57.95z"/><path fill="#FFD500" d="M449.38 231l-71.65-39.46L310.36 256l67.37 64.43L449.38 281c19.49-10.77 19.49-39.23 0-50z"/></svg><span><strong>Google Play</strong></span></a></div></div>
+<section class="hero"><div class="wrap"><div><h1>Antrenmanını ve beslenmeni <em>birlikte</em> yönet.</h1><p>VELOFIT.ai sana özel antrenman ve beslenme planı çıkarır, ilerlemeni takip eder. Takıldığında yapay zekâ koçuna tek dokunuşla yazarsın.</p><p class="vf-free-message" style="color:#4ADE80;font-weight:600;margin:0 0 16px">Ücretsiz başla, ilk antrenmanını keşfet.</p><div class="vf-hero-benefits" aria-label="VeloFit ile yapabileceklerin"><span>✓ İlk antrenmanını keşfet</span><span>✓ Beslenme planını incele</span><span>✓ Yapay zekâ koçunu tanı</span></div><div class="stores "><a class="store" href="https://apps.apple.com/tr/app/velofit-ai/id6809853060?l=tr" target="_blank" rel="noopener" onclick="gtag('event','app_store_click',{'event_category':'engagement'});"><svg viewBox="0 0 384 512" fill="#fff"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span><strong>App Store</strong></span></a><a class="store" href="https://play.google.com/store/apps/details?id=com.erhanozhan.wellnesscompanion" target="_blank" rel="noopener" onclick="gtag('event','play_store_click',{'event_category':'engagement'});"><svg viewBox="0 0 512 512"><path fill="#00A0FF" d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z"/><path fill="#00F076" d="M345.8 174L89.22 31.64l-.16-.09c-4.42-2.4-8.62 3.58-5 7.06l201.13 192.32z"/><path fill="#FF3A44" d="M84.08 473.39c-3.63 3.48.57 9.46 5 7.06l.16-.09L345.8 338l-60.61-57.95z"/><path fill="#FFD500" d="M449.38 231l-71.65-39.46L310.36 256l67.37 64.43L449.38 281c19.49-10.77 19.49-39.23 0-50z"/></svg><span><strong>Google Play</strong></span></a></div></div>
 <div class="hero-ph"><div class="photo"><img src="foto-sebze-hero.jpg" alt="Taze sebzelerle dolu sepet" width="900" height="1125" fetchpriority="high"></div><div class="phone"><img src="slayt-ana-sayfa.jpg" alt="VELOFIT ana ekran" width="520" height="1066"></div></div></div></section>
 <div class="wrap"><div class="feat3">
 <div class="f3"><i><svg viewBox="0 0 24 24"><path d="M6 6v12M3 9v6M18 6v12M21 9v6M6 12h12"/></svg></i><div><b>Antrenman</b><span>Günün programı, set ve tekrarlarla hazır.</span></div></div>
@@ -212,6 +222,7 @@ header{padding:20px 0}
 <div class="fq"><b>Bu uygulama tıbbi tavsiye verir mi?</b><span>Hayır. VELOFIT.ai tıbbi tavsiye veya profesyonel danışmanlık sunmaz. Sağlık sorunun varsa başlamadan önce doktoruna danış.</span></div></div></section>
 <footer><div class="links"><a href="/privacy">Gizlilik Politikası</a><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Kullanım Koşulları</a></div>
 <div class="disclaimer">© 2026 VELOFIT.ai — VELOFIT.ai tıbbi tavsiye veya tedavi yerine geçmez. Apple ve App Store, Apple Inc.’in; Google Play ve Google Play logosu Google LLC’nin ticari markalarıdır.</div></footer>
+<section class="vf-discovery" aria-labelledby="vf-discovery-title"><div class="wrap"><div class="vf-discovery-card"><div><span class="vf-discovery-kicker">KENDİ HEDEFİNLE BAŞLA</span><h2 id="vf-discovery-title">Sana uygun başlangıcı keşfet.</h2><p>Üç kısa soruyla hedefini seç, örnek antrenman ve beslenme önerilerini gör. Üyelik veya ödeme gerekmez.</p></div><button id="vfStartQuiz" type="button" class="vf-discovery-button">Ücretsiz örnek planımı gör <span aria-hidden="true">→</span></button></div></div></section>
 <div id="vfOv"><div id="vfCard" role="dialog" aria-label="Kısa anket"></div></div>
 
 <script>
@@ -223,7 +234,7 @@ var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){o();io.disco
 <script>
 (function(){
   var KEY="vf_anket3";
-  try{ if(localStorage.getItem(KEY)) return; }catch(e){}
+  // Quiz is opt-in; returning visitors may reopen it whenever they choose.
   var C=["#FF6B6B","#4DA3FF","#4ADE80","#FFC145","#A78BFA"];
   var steps=[
     {q:"Cinsiyetin?",o:[["Kadın","anket_cinsiyet_kadin"],["Erkek","anket_cinsiyet_erkek"],["Belirtmek istemiyorum","anket_cinsiyet_belirtmiyor"]]},
@@ -290,7 +301,18 @@ var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){o();io.disco
       box.appendChild(b);
     });
   }
-  setTimeout(function(){ ov.style.display="flex"; ev("anket_goruldu"); show(); },2000);
+  var trigger=document.getElementById("vfStartQuiz");
+  function openQuiz(){
+    i=0; finished=false; hedef=""; hedefKey="kilo"; zorluk=""; zorlukEv="";
+    ov.style.display="flex"; ev("anket_goruldu",{event_category:"anket",placement:"opt_in"}); show();
+    var closeButton=document.getElementById("vfX"); if(closeButton) closeButton.focus();
+  }
+  if(trigger) trigger.addEventListener("click",function(){
+    ev("quiz_start_click",{event_category:"engagement",placement:"discovery"});
+    openQuiz();
+  });
+  ov.addEventListener("click",function(e){if(e.target===ov)close();});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&ov.style.display==="flex")close();});
 })();
 </script>
 <script defer src="/mobile-download.js"></script>
