@@ -192,7 +192,12 @@ header{padding:20px 0}
 .vf-progress .lead{max-width:690px;color:#b7c5bc;font-size:15px;line-height:1.75;margin-bottom:30px}
 .vf-progress-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:34px;align-items:center}
 .vf-progress-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:430px;padding:24px;background:radial-gradient(circle at 50% 50%,rgba(74,222,128,.16),transparent 65%),#121e17;border:1px solid rgba(74,222,128,.2);border-radius:28px;overflow:hidden}
-.vf-progress-visual img{display:block;max-width:min(100%,235px);width:100%;height:auto;border-radius:22px;box-shadow:0 24px 55px rgba(0,0,0,.4)}
+.vf-progress-visual .vf-athlete-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;height:390px;align-items:stretch}
+.vf-progress-visual .vf-athlete-photos img{width:100%;height:100%;min-width:0;object-fit:cover;object-position:center;border-radius:18px;filter:saturate(.95)}
+.vf-progress-visual .vf-athlete-photos img:nth-child(2){transform:translateY(16px)}
+.vf-progress-visual .vf-progress-phone{position:absolute;bottom:43px;left:50%;transform:translateX(-50%);height:240px;width:auto;max-width:48%;object-fit:contain;border-radius:15px;border:3px solid rgba(255,255,255,.24);box-shadow:0 20px 55px rgba(0,0,0,.78)}
+.vf-progress-visual:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(5,12,8,.38) 100%)}
+.vf-progress-visual .vf-screen-label{z-index:2}
 .vf-progress-visual .vf-screen-label{position:absolute;bottom:18px;left:18px;right:18px;text-align:center;color:#d5e9da;font-size:11px;background:rgba(10,20,14,.88);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:9px 12px}
 .vf-progress-steps{display:grid;gap:12px;list-style:none;padding:0;margin:0}
 .vf-progress-steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:18px;background:#15211a;border:1px solid rgba(255,255,255,.1);border-radius:16px}
@@ -202,7 +207,7 @@ header{padding:20px 0}
 .vf-progress-foot{margin-top:26px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .vf-progress-foot a{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;background:var(--g);color:#0b1b12;font-weight:800;text-decoration:none;border-radius:12px;font-size:14px}
 .vf-progress-foot span{font-size:12px;color:#a6b7ab;max-width:430px}
-@media(max-width:760px){.vf-progress{padding:58px 0}.vf-progress-grid{grid-template-columns:1fr;gap:24px}.vf-progress-visual{min-height:360px}.vf-progress-visual img{max-width:190px}.vf-progress-steps li{padding:15px}}
+@media(max-width:760px){.vf-progress{padding:58px 0}.vf-progress-grid{grid-template-columns:1fr;gap:24px}.vf-progress-visual{min-height:360px}.vf-progress-visual .vf-athlete-photos{height:320px;gap:8px}.vf-progress-visual .vf-progress-phone{height:195px;bottom:40px}.vf-progress-steps li{padding:15px}}
 
 </style>
 <link rel="stylesheet" href="/mobile-download.css?v=20261102b">
@@ -235,11 +240,15 @@ header{padding:20px 0}
   <div class="wrap">
     <span class="eyebrow">BAŞLANGIÇTAN GELİŞİME</span>
     <h2 id="vf-progress-title">Değişimini tahmin etme.<br>İlerlemeni takip et.</h2>
-    <p class="lead">Bir “öncesi–sonrası” fotoğrafından fazlası: VELOFIT ile antrenmanlarını, beslenme planını ve ilerleme ekranını tek yerde gör. Aşağıdaki görsel doğrudan uygulama arayüzünden alınmıştır.</p>
+    <p class="lead">Bir “öncesi–sonrası” fotoğrafından fazlası: VELOFIT ile antrenmanlarını, beslenme planını ve ilerleme ekranını tek yerde gör. Sporu günlük yaşamının parçası haline getirirken VeloFit uygulamasının ilerleme ekranıyla yolculuğunu takip et.</p>
     <div class="vf-progress-grid">
       <div class="vf-progress-visual">
-        <img src="slayt-ilerleme.jpg" width="520" height="1075" loading="lazy" alt="VeloFit uygulamasının ilerleme takibi ekranı">
-        <span class="vf-screen-label">Gerçek uygulama ekranı · Örnek arayüz gösterimi</span>
+        <div class="vf-athlete-photos" aria-label="Evde ve spor salonunda egzersiz yapan kişiler">
+          <img src="foto-evde.jpg" width="760" height="950" loading="lazy" alt="Evde egzersiz yapan kişi">
+          <img src="foto-salonda.jpg" width="760" height="950" loading="lazy" alt="Spor salonunda antrenman yapan kişi">
+        </div>
+        <img class="vf-progress-phone" src="slayt-ilerleme.jpg" width="520" height="1075" loading="lazy" alt="VeloFit uygulamasının ilerleme takibi ekranı">
+        <span class="vf-screen-label">Antrenman fotoğrafları · VeloFit uygulama ekranı</span>
       </div>
       <ol class="vf-progress-steps">
         <li><span class="num" aria-hidden="true">01</span><div><h3>Hedefinle başla</h3><p>Hedefine göre hazırlanan antrenman ve beslenme planını incele.</p></div></li>
