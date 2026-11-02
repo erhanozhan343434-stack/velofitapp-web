@@ -184,6 +184,26 @@ header{padding:20px 0}
 .vf-discovery-button:focus-visible{outline:3px solid white;outline-offset:3px}
 @media(max-width:700px){.vf-discovery-card{flex-direction:column;align-items:stretch;padding:20px}.vf-discovery-button{white-space:normal}}
 .vf-ios .stores .store[data-platform="android"],.vf-android .stores .store[data-platform="ios"]{display:none}
+
+/* Product-led proof: real app screens, no invented testimonials or body transformations. */
+.vf-progress{padding:86px 0;background:linear-gradient(180deg,#0b110e,#101a15 60%,#0b110e)}
+.vf-progress .eyebrow{display:inline-block;color:var(--g);font-size:12px;font-weight:800;letter-spacing:.13em;margin-bottom:12px}
+.vf-progress h2{font-family:"Oswald",sans-serif;font-size:clamp(32px,4.5vw,54px);line-height:1.12;margin:0 0 14px}
+.vf-progress .lead{max-width:690px;color:#b7c5bc;font-size:15px;line-height:1.75;margin-bottom:30px}
+.vf-progress-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:34px;align-items:center}
+.vf-progress-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:430px;padding:24px;background:radial-gradient(circle at 50% 50%,rgba(74,222,128,.16),transparent 65%),#121e17;border:1px solid rgba(74,222,128,.2);border-radius:28px;overflow:hidden}
+.vf-progress-visual img{display:block;max-width:min(100%,235px);width:100%;height:auto;border-radius:22px;box-shadow:0 24px 55px rgba(0,0,0,.4)}
+.vf-progress-visual .vf-screen-label{position:absolute;bottom:18px;left:18px;right:18px;text-align:center;color:#d5e9da;font-size:11px;background:rgba(10,20,14,.88);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:9px 12px}
+.vf-progress-steps{display:grid;gap:12px;list-style:none;padding:0;margin:0}
+.vf-progress-steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:18px;background:#15211a;border:1px solid rgba(255,255,255,.1);border-radius:16px}
+.vf-progress-steps .num{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:rgba(74,222,128,.15);color:var(--g);font-weight:800}
+.vf-progress-steps h3{font-size:16px;color:#fff;margin:0 0 4px}
+.vf-progress-steps p{font-size:13px;color:#aebdb3;line-height:1.6;margin:0}
+.vf-progress-foot{margin-top:26px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.vf-progress-foot a{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;background:var(--g);color:#0b1b12;font-weight:800;text-decoration:none;border-radius:12px;font-size:14px}
+.vf-progress-foot span{font-size:12px;color:#a6b7ab;max-width:430px}
+@media(max-width:760px){.vf-progress{padding:58px 0}.vf-progress-grid{grid-template-columns:1fr;gap:24px}.vf-progress-visual{min-height:360px}.vf-progress-visual img{max-width:190px}.vf-progress-steps li{padding:15px}}
+
 </style>
 <link rel="stylesheet" href="/mobile-download.css?v=20261102b">
 </head>
@@ -210,6 +230,29 @@ header{padding:20px 0}
 <section class="about" id="koc"><div class="wrap"><div class="pic"><div class="photo"><img src="foto-sebze-beslenme.jpg" alt="Taze yeşillikler" width="800" height="1200" loading="lazy"></div><div class="phone"><img src="slayt-beslenme.jpg" alt="Beslenme planı" width="520" height="1075" loading="lazy"></div></div>
 <div><small>Yapay zekâ koç</small><h2>Takıldığında tek dokunuşla sor.</h2><p>VELOFIT.ai’de “Bugün ne yapmalıyım?” düğmesine dokunursun, koçun antrenman ve beslenme sorularında yanında olur. VELOFIT tıbbi tavsiye yerine geçmez.</p>
 <ul><li>Kişiye özel plan</li><li>Kalori ve makro hedefi</li><li>İstersen hatırlatma</li><li>Türkçe, İngilizce, Almanca, Arapça</li></ul></div></div></section>
+
+<section class="vf-progress" id="gelisim" aria-labelledby="vf-progress-title">
+  <div class="wrap">
+    <span class="eyebrow">BAŞLANGIÇTAN GELİŞİME</span>
+    <h2 id="vf-progress-title">Değişimini tahmin etme.<br>İlerlemeni takip et.</h2>
+    <p class="lead">Bir “öncesi–sonrası” fotoğrafından fazlası: VELOFIT ile antrenmanlarını, beslenme planını ve ilerleme ekranını tek yerde gör. Aşağıdaki görsel doğrudan uygulama arayüzünden alınmıştır.</p>
+    <div class="vf-progress-grid">
+      <div class="vf-progress-visual">
+        <img src="slayt-ilerleme.jpg" width="520" height="1075" loading="lazy" alt="VeloFit uygulamasının ilerleme takibi ekranı">
+        <span class="vf-screen-label">Gerçek uygulama ekranı · Örnek arayüz gösterimi</span>
+      </div>
+      <ol class="vf-progress-steps">
+        <li><span class="num" aria-hidden="true">01</span><div><h3>Hedefinle başla</h3><p>Hedefine göre hazırlanan antrenman ve beslenme planını incele.</p></div></li>
+        <li><span class="num" aria-hidden="true">02</span><div><h3>Her gün küçük bir adım at</h3><p>Günlük antrenmanlarını ve beslenme düzenini aynı uygulamada takip et.</p></div></li>
+        <li><span class="num" aria-hidden="true">03</span><div><h3>Gelişimini gör</h3><p>İlerleme ekranından kaydettiğin verileri takip et; gerektiğinde planını gözden geçir.</p></div></li>
+      </ol>
+    </div>
+    <div class="vf-progress-foot">
+      <a href="#indir" onclick="if(window.gtag)gtag('event','progress_cta_click',{event_category:'engagement',placement:'progress_showcase'});">VeloFit'i keşfet →</a>
+      <span>Gösterilen ekranlar uygulamayı tanıtmak içindir. Kişisel sonuçlar değişebilir; bu bölüm gerçek kullanıcı yorumu veya sonuç garantisi içermez.</span>
+    </div>
+  </div>
+</section>
 <section class="dl" id="indir"><div class="wrap"><h2>İlk antrenmanına bugün başla.</h2><p>Kurulum iki dakika sürer.</p><div class="stores "><a class="store" data-platform="ios" href="https://apps.apple.com/tr/app/velofit-ai/id6809853060?l=tr" target="_blank" rel="noopener" onclick="gtag('event','app_store_click',{'event_category':'engagement'});"><svg viewBox="0 0 384 512" fill="#fff"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span><strong>App Store</strong></span></a><a class="store" data-platform="android" href="https://play.google.com/store/apps/details?id=com.erhanozhan.wellnesscompanion" target="_blank" rel="noopener" onclick="gtag('event','play_store_click',{'event_category':'engagement'});"><svg viewBox="0 0 512 512"><path fill="#00A0FF" d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z"/><path fill="#00F076" d="M345.8 174L89.22 31.64l-.16-.09c-4.42-2.4-8.62 3.58-5 7.06l201.13 192.32z"/><path fill="#FF3A44" d="M84.08 473.39c-3.63 3.48.57 9.46 5 7.06l.16-.09L345.8 338l-60.61-57.95z"/><path fill="#FFD500" d="M449.38 231l-71.65-39.46L310.36 256l67.37 64.43L449.38 281c19.49-10.77 19.49-39.23 0-50z"/></svg><span><strong>Google Play</strong></span></a></div></div></section>
 <section class="faq" id="sss"><div class="wrap"><h2>Sık sorulanlar</h2>
 <div class="fq"><b>Hesap gerekir mi?</b><span>Hayır, e-posta ya da şifre olmadan kullanırsın.</span></div>
